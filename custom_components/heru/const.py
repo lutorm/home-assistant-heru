@@ -507,6 +507,13 @@ HERU_SWITCHES = [
         "register_type": HOLDING_REGISTERS,
     },
     {
+        "name": "Cooler type",
+        "modbus_address": "4x00068",
+        "address": 67,
+        "icon": ICON_COOLING,
+        "register_type": HOLDING_REGISTERS,
+    },
+    {
         "name": "Cooler enabled",
         "modbus_address": "4x00069",
         "address": 68,
