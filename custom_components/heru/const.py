@@ -23,6 +23,7 @@ ICON_CALENDAR = "mdi:calendar"
 ICON_THERMOSTAT = "mdi:home-thermometer"
 ICON_START = "mdi:ray-start-arrow"
 ICON_COOLING = "mdi:snowflake"
+ICON_CALENDAR = "mdi:calendar"
 
 # Platforms
 SENSOR = Platform.SENSOR
@@ -129,6 +130,30 @@ HERU_SENSORS = [
         "register_type": INPUT_REGISTERS,
     },
     {
+        "name": "Current exhaust fan speed",
+        "modbus_address": "3x00028",
+        "address": 27,
+        "scale": 1,
+        "icon": ICON_FAN,
+        "unit_of_measurement": "rpm",
+        "device_class": None,
+        "state_class": None,
+        "entity_category": None,
+        "register_type": INPUT_REGISTERS,
+    },
+    {
+        "name": "Current exhaust fan control voltage",
+        "modbus_address": "3x00033",
+        "address": 32,
+        "scale": 0.1,
+        "icon": ICON_FAN,
+        "unit_of_measurement": "V",
+        "device_class": None,
+        "state_class": None,
+        "entity_category": None,
+        "register_type": INPUT_REGISTERS,
+    },
+    {
         "name": "Current heating power",
         "modbus_address": "3x00029",
         "address": 28,
@@ -165,7 +190,31 @@ HERU_SENSORS = [
         "register_type": INPUT_REGISTERS,
     },
     {
-        "name": "Current heat-cold recovery power",
+        "name": "Current supply fan speed",
+        "modbus_address": "3x00027",
+        "address": 26,
+        "scale": 1,
+        "icon": ICON_FAN,
+        "unit_of_measurement": "rpm",
+        "device_class": None,
+        "state_class": None,
+        "entity_category": None,
+        "register_type": INPUT_REGISTERS,
+    },
+    {
+        "name": "Current supply fan control voltage",
+        "modbus_address": "3x00032",
+        "address": 31,
+        "scale": 0.1,
+        "icon": ICON_FAN,
+        "unit_of_measurement": "V",
+        "device_class": None,
+        "state_class": None,
+        "entity_category": None,
+        "register_type": INPUT_REGISTERS,
+    },
+    {
+        "name": "Current heat/cold recovery power",
         "modbus_address": "3x00030",
         "address": 29,
         "scale": 0.3921568627,
@@ -346,6 +395,19 @@ HERU_SENSORS = [
         "entity_category": EntityCategory.DIAGNOSTIC,
         "register_type": DISCRETE_INPUTS,
     },
+    {
+        "name": "Changeover active",
+        "modbus_address": "3x00034",
+        "address": 33,
+        "scale": None,
+        "icon": ICON_CALENDAR,
+        "unit_of_measurement": None,
+        "device_class": SensorDeviceClass.ENUM,
+        "state_class": None,
+        "entity_category": None,
+        "register_type": INPUT_REGISTERS,
+        "options": ["Off", "On"],
+    },
 ]
 
 
@@ -455,6 +517,13 @@ HERU_SWITCHES = [
         "name": "Night cooling enabled",
         "modbus_address": "4x00019",
         "address": 18,
+        "icon": ICON_COOLING,
+        "register_type": HOLDING_REGISTERS,
+    },
+    {
+        "name": "Cooler type",
+        "modbus_address": "4x00068",
+        "address": 67,
         "icon": ICON_COOLING,
         "register_type": HOLDING_REGISTERS,
     },
