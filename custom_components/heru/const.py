@@ -23,6 +23,7 @@ ICON_CALENDAR = "mdi:calendar"
 ICON_THERMOSTAT = "mdi:home-thermometer"
 ICON_START = "mdi:ray-start-arrow"
 ICON_COOLING = "mdi:snowflake"
+ICON_CALENDAR = "mdi:calendar"
 
 # Platforms
 SENSOR = Platform.SENSOR
@@ -393,6 +394,19 @@ HERU_SENSORS = [
         "state_class": None,
         "entity_category": EntityCategory.DIAGNOSTIC,
         "register_type": DISCRETE_INPUTS,
+    },
+    {
+        "name": "Changeover active",
+        "modbus_address": "3x00034",
+        "address": 33,
+        "scale": None,
+        "icon": ICON_CALENDAR,
+        "unit_of_measurement": None,
+        "device_class": SensorDeviceClass.ENUM,
+        "state_class": None,
+        "entity_category": None,
+        "register_type": INPUT_REGISTERS,
+        "options": ["Off", "On"],
     },
 ]
 
