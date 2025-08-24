@@ -24,7 +24,6 @@ ICON_THERMOSTAT = "mdi:home-thermometer"
 ICON_START = "mdi:ray-start-arrow"
 ICON_COOLING = "mdi:snowflake"
 ICON_THERMOMETER_LINES = "mdi:thermometer-lines"
-ICON_HUMIDITY = "mdi:water-percent"
 
 # Platforms
 SENSOR = Platform.SENSOR
@@ -414,10 +413,10 @@ HERU_SENSORS = [
         "modbus_address": "3x00042",
         "address": 41,
         "scale": 0.1,
-        "icon": ICON_HUMIDITY,
-        "unit_of_measurement": "%",
-        "device_class": SensorDeviceClass.HUMIDITY,
-        "state_class": SensorDeviceClass.MEASUREMENT,
+        "unit_of_measurement": "V",
+        "entity_category": None,
+        "device_class": None,
+        "state_class": None,
         "entity_category": None,
         "register_type": INPUT_REGISTERS,
     },
