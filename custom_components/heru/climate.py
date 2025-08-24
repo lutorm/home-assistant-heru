@@ -90,12 +90,12 @@ class HeruThermostat(HeruEntity, ClimateEntity):
             return self.coordinator.input_registers[7] * 0.1
         elif regulation_mode == 3:  # Extract S/W
             _LOGGER.debug(changeover)
-            if changeover == "On":
+            if changeover == 1:
                 return self.coordinator.input_registers[2] * 0.1 # Supply
             else:
                 return self.coordinator.input_registers[3] * 0.1 # Extract
         elif regulation_mode == 4:  # Room S/W
-            if changeover == "On":
+            if changeover == 1:
                 return self.coordinator.input_registers[2] * 0.1 # Supply
             else:
                 return self.coordinator.input_registers[7] * 0.1 # Room
