@@ -56,7 +56,7 @@ class HeruCoordinator(DataUpdateCoordinator):
                 self.input_registers = {n: reg for n,reg in enumerate(result.registers)}
                 # 3x00041 - 3x00046
                 result = await self.client.read_input_registers(40, count=6, slave=DEFAULT_SLAVE)
-                self.input_registers.update({n: reg for n,reg in enumerate(result.registers)})
+                self.input_registers.update({n+40: reg for n,reg in enumerate(result.registers)})
 
                 # 4x00001 - 4x00067
                 holding_registers_result = await self.client.read_holding_registers(
